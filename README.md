@@ -11,10 +11,10 @@ The underlying workflow and installed identifier remain **AI Company Context Arc
 ## Download
 
 - [Latest release and installation files](https://github.com/saalsaedi/company-context-for-ai-marketing/releases/latest)
-- [Claude / Codex skill ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/releases/latest/download/ai-company-context-architect-1.0.0.zip)
-- [ChatGPT setup ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/releases/latest/download/chatgpt-setup-1.0.0.zip)
+- [Claude / Codex skill ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/ai-company-context-architect-1.0.0.zip)
+- [ChatGPT setup ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/chatgpt-setup-1.0.0.zip)
 
-Use the attached skill ZIP for installation. It contains the correctly named skill folder and supporting files.
+Use the packaged skill ZIP for installation. It contains the correctly named skill folder and supporting files.
 
 ## What it does
 
