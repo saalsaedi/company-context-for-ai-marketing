@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/context-bundle.schema.json",
+  "title": "context-bundle",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "profile": {
+      "$ref": "company-profile.schema.json"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence-source.schema.json"
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "context-record.schema.json"
+      }
+    },
+    "state": {
+      "$ref": "progress-state.schema.json"
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile",
+    "sources",
+    "records",
+    "state"
+  ],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.0.0",
+  "profile": {
+    "company_id": "C-demo-namaa",
+    "display_name": "Namaa Demo — نماء التجريبية",
+    "legal_name": null,
+    "maturity": "idea",
+    "context_version": "1.0.0",
+    "conversation_language": "ar",
+    "document_language": "ar",
+    "operating_geographies": [
+      "UAE (proposed)"
+    ],
+    "intended_use": "Internal planning for a fictional idea-stage company",
+    "context_owner": "Fictional founder",
+    "default_sensitivity": "internal",
+    "domains": {
+      "foundation": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "business_model": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "products_services": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "market_intelligence": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "customer_intelligence": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "brand_communication": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "marketing_growth": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "operations_team": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "technology_data": {
+        "applicability": "applicable",
+        "reason": null
+      },
+      "governance_risks": {
+        "applicability": "applicable",
+        "reason": null
+      }
+    },
+    "created_at": "2026-11-14T10:00:00+04:00",
+    "updated_at": "2026-11-14T10:00:00+04:00"
+  },
+  "sources": [
+    {
+      "id": "S-001",
+      "company_id": "C-demo-namaa",
+      "title": "Fictional founder interview",
+      "type": "user_statement",
+      "evidence_class": "internal_unstructured",
+      "owner": "Fictional founder",
+      "locator": "fixture://founder-interview/turn-1",
+      "published_at": null,
+      "accessed_at": "2026-11-14T10:00:00+04:00",
+      "sensitivity": "internal",
+      "limitations": "Synthetic example; no real company data or independent market evidence."
+    }
+  ],
+  "records": [
+    {
+      "id": "R-001",
+      "company_id": "C-demo-namaa",
+      "domain": "foundation",
+      "subject_key": "foundation.baseline",
+      "kind": "founder_decision",
+      "statement": "Focus the proposed service on independent studios in the UAE.",
+      "value": "Independent studios in the UAE",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "medium",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for foundation"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-002",
+      "company_id": "C-demo-namaa",
+      "domain": "business_model",
+      "subject_key": "business_model.baseline",
+      "kind": "hypothesis",
+      "statement": "Monthly subscriptions may fit the proposed offer; willingness to pay is untested.",
+      "value": "Monthly subscription hypothesis",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "low",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for business_model"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-003",
+      "company_id": "C-demo-namaa",
+      "domain": "products_services",
+      "subject_key": "products_services.baseline",
+      "kind": "aspiration",
+      "statement": "The company intends to create a booking assistant; no product is available yet.",
+      "value": "Proposed booking assistant",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "planned",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "medium",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for products_services"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-004",
+      "company_id": "C-demo-namaa",
+      "domain": "market_intelligence",
+      "subject_key": "market_intelligence.baseline",
+      "kind": "unknown",
+      "statement": "The market size has not been researched.",
+      "value": null,
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "unknown",
+      "source_ids": [],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "unassessed",
+        "rationale": "Information is explicitly unavailable."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for market_intelligence"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-005",
+      "company_id": "C-demo-namaa",
+      "domain": "customer_intelligence",
+      "subject_key": "customer_intelligence.baseline",
+      "kind": "hypothesis",
+      "statement": "Owners may value fewer missed appointments; no customer interviews exist yet.",
+      "value": "Missed-appointment problem hypothesis",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "low",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for customer_intelligence"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-006",
+      "company_id": "C-demo-namaa",
+      "domain": "brand_communication",
+      "subject_key": "brand_communication.baseline",
+      "kind": "founder_decision",
+      "statement": "Use clear, warm Arabic and English without unsupported superlatives.",
+      "value": "Clear, warm Arabic and English",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "medium",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for brand_communication"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-007",
+      "company_id": "C-demo-namaa",
+      "domain": "marketing_growth",
+      "subject_key": "marketing_growth.baseline",
+      "kind": "unknown",
+      "statement": "Acquisition channels and conversion rates have not been tested.",
+      "value": null,
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "unknown",
+      "source_ids": [],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "unassessed",
+        "rationale": "Information is explicitly unavailable."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for marketing_growth"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-008",
+      "company_id": "C-demo-namaa",
+      "domain": "operations_team",
+      "subject_key": "operations_team.baseline",
+      "kind": "confirmed_fact",
+      "statement": "The fictional founder reports that they currently perform all work alone.",
+      "value": "Founder-operated",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "medium",
+        "rationale": "Internal fact self-reported by the owner; not independently audited."
+      },
+      "verification_method": "founder_attested",
+      "verified_at": "2026-11-14",
+      "next_review_at": "2026-12-14",
+      "sensitivity": "internal",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for operations_team"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-009",
+      "company_id": "C-demo-namaa",
+      "domain": "technology_data",
+      "subject_key": "technology_data.baseline",
+      "kind": "unknown",
+      "statement": "The technology stack has not been selected.",
+      "value": null,
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "unknown",
+      "source_ids": [],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "unassessed",
+        "rationale": "Information is explicitly unavailable."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for technology_data"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    },
+    {
+      "id": "R-010",
+      "company_id": "C-demo-namaa",
+      "domain": "governance_risks",
+      "subject_key": "governance_risks.baseline",
+      "kind": "founder_decision",
+      "statement": "Exclude credentials and personal customer details from the AI context.",
+      "value": "No credentials or personal customer details",
+      "scope": {
+        "basis": "internal",
+        "geography": "UAE (proposed)",
+        "population": null,
+        "period": null,
+        "unit": null,
+        "denominator": null,
+        "effective_from": null,
+        "effective_to": null
+      },
+      "temporal_status": "current",
+      "source_ids": [
+        "S-001"
+      ],
+      "owner": "Fictional founder",
+      "confidence": {
+        "level": "medium",
+        "rationale": "Reflects the fictional founder statement, not empirical market validation."
+      },
+      "verification_method": "not_verified",
+      "verified_at": null,
+      "next_review_at": "2026-12-14",
+      "sensitivity": "public",
+      "review": {
+        "status": "approved",
+        "reviewer": "Fictional founder",
+        "at": "2026-11-14T10:00:00+04:00",
+        "scope": "Statement and classification for governance_risks"
+      },
+      "lifecycle": "active",
+      "supersedes": [],
+      "related_record_ids": [],
+      "notes": "Fictional example for contract tests.",
+      "created_at": "2026-11-14T10:00:00+04:00",
+      "updated_at": "2026-11-14T10:00:00+04:00"
+    }
+  ],
+  "state": {
+    "mode": "build",
+    "current_stage": "11",
+    "base_version": null,
+    "stages": [
+      {
+        "id": "00",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 0 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "01",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 1 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "02",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 2 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "03",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 3 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "04",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 4 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "05",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 5 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "06",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 6 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "07",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 7 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "08",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 8 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "09",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 9 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "10",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 10 summary, including explicit unknowns"
+        }
+      },
+      {
+        "id": "11",
+        "status": "approved",
+        "reason": null,
+        "review": {
+          "status": "approved",
+          "reviewer": "Fictional founder",
+          "at": "2026-11-14T10:00:00+04:00",
+          "scope": "Fictional stage 11 summary, including explicit unknowns"
+        }
+      }
+    ],
+    "gaps": [
+      {
+        "id": "G-001",
+        "type": "research",
+        "description": "Market size has not been researched; omit sizing claims.",
+        "record_ids": [
+          "R-004"
+        ],
+        "status": "open",
+        "owner": "Fictional founder",
+        "next_action": "Research a defined segment before using market-size claims.",
+        "resolution": null,
+        "opened_at": "2026-11-14T10:00:00+04:00",
+        "resolved_at": null
+      }
+    ],
+    "questions": [
+      {
+        "id": "Q-001",
+        "topic": "company.maturity",
+        "question": "في أي مرحلة وصلت الشركة؟",
+        "status": "answered",
+        "answer_source_ids": [
+          "S-001"
+        ],
+        "asked_at": "2026-11-14T10:00:00+04:00"
+      }
+    ],
+    "next_action": "Conduct customer discovery before treating demand hypotheses as facts.",
+    "readiness": "ready_with_caveats",
+    "release_review": {
+      "status": "approved",
+      "reviewer": "Fictional founder",
+      "at": "2026-11-14T10:00:00+04:00",
+      "scope": "Fictional release 1.0.0 for internal planning with research caveats"
+    },
+    "automated_validation": "not_run",
+    "capabilities": {
+      "read_files": "available",
+      "write_files": "available",
+      "browse": "unavailable",
+      "execute_code": "available",
+      "persistent_storage": "unknown"
+    },
+    "updated_at": "2026-11-14T10:00:00+04:00"
+  }
+}
+

@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/common.schema.json",
+  "title": "common",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "domain": {
+      "enum": [
+        "foundation",
+        "business_model",
+        "products_services",
+        "market_intelligence",
+        "customer_intelligence",
+        "brand_communication",
+        "marketing_growth",
+        "operations_team",
+        "technology_data",
+        "governance_risks"
+      ]
+    },
+    "sensitivity": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "not_required"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "at",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "approved",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reviewer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(0[0-9]|1[01])$"
+        },
+        "status": {
+          "enum": [
+            "not_started",
+            "in_progress",
+            "awaiting_review",
+            "approved",
+            "deferred",
+            "not_applicable"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "review": {
+          "$ref": "common.schema.json#/$defs/review"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "reason",
+        "review"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "deferred",
+                  "not_applicable"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "review": {
+                "properties": {
+                  "status": {
+                    "const": "approved"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unassessed"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "level",
+        "rationale"
+      ],
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "enum": [
+            "internal",
+            "external"
+          ]
+        },
+        "geography": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "population": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "period": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "denominator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effective_from": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "effective_to": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      },
+      "required": [
+        "basis",
+        "geography",
+        "population",
+        "period",
+        "unit",
+        "denominator",
+        "effective_from",
+        "effective_to"
+      ],
+      "additionalProperties": false
+    },
+    "gap": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "type": {
+          "enum": [
+            "critical",
+            "non_critical",
+            "research",
+            "strategic_decision"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "deferred"
+          ]
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resolution": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "opened_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resolved_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "description",
+        "record_ids",
+        "status",
+        "owner",
+        "next_action",
+        "resolution",
+        "opened_at",
+        "resolved_at"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
+

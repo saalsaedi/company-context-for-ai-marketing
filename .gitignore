@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.build-deps/
+.env
+.env.*
+company-context/
+working/
+exports/
+releases/
+dist/
+.DS_Store
+Thumbs.db

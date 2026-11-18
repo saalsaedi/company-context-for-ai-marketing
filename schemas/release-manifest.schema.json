@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/release-manifest.schema.json",
+  "title": "release-manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "company_id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "context_version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "readiness": {
+      "enum": [
+        "ready",
+        "ready_with_caveats"
+      ]
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/review"
+    },
+    "automated_validation": {
+      "enum": [
+        "passed",
+        "not_run"
+      ]
+    },
+    "manual_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\.\\.)[^:]+$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "company_id",
+    "context_version",
+    "created_at",
+    "readiness",
+    "review",
+    "automated_validation",
+    "manual_checks",
+    "caveats",
+    "artifacts"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "properties": {
+        "review": {
+          "properties": {
+            "status": {
+              "const": "approved"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+

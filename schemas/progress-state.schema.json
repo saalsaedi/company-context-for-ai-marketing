@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/progress-state.schema.json",
+  "title": "progress-state",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "enum": [
+        "build",
+        "audit",
+        "update",
+        "export"
+      ]
+    },
+    "current_stage": {
+      "type": "string",
+      "pattern": "^(0[0-9]|1[01])$"
+    },
+    "base_version": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/version"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/stage"
+      },
+      "minItems": 12,
+      "maxItems": 12
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/gap"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "topic": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "answered",
+              "deferred"
+            ]
+          },
+          "answer_source_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "asked_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "topic",
+          "question",
+          "status",
+          "answer_source_ids",
+          "asked_at"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "readiness": {
+      "enum": [
+        "needs_completion",
+        "ready_with_caveats",
+        "ready"
+      ]
+    },
+    "release_review": {
+      "$ref": "common.schema.json#/$defs/review"
+    },
+    "automated_validation": {
+      "enum": [
+        "not_run",
+        "passed",
+        "failed"
+      ]
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "read_files": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "write_files": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "browse": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "execute_code": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "persistent_storage": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "read_files",
+        "write_files",
+        "browse",
+        "execute_code",
+        "persistent_storage"
+      ],
+      "additionalProperties": false
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "mode",
+    "current_stage",
+    "base_version",
+    "stages",
+    "gaps",
+    "questions",
+    "next_action",
+    "readiness",
+    "release_review",
+    "automated_validation",
+    "capabilities",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}
+

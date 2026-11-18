@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/export-manifest.schema.json",
+  "title": "export-manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "export_id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "company_id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "source_version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "audience": {
+      "enum": [
+        "public",
+        "internal"
+      ]
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/domain"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "included_record_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "omitted_record_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\.\\.)[^:]+$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "export_id",
+    "company_id",
+    "source_version",
+    "created_at",
+    "audience",
+    "task",
+    "domains",
+    "included_record_ids",
+    "omitted_record_ids",
+    "caveats",
+    "artifacts"
+  ],
+  "additionalProperties": false
+}
+

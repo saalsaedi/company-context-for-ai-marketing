@@ -1,0 +1,554 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/company-profile.schema.json",
+  "title": "company-profile",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "maturity": {
+      "enum": [
+        "idea",
+        "mvp",
+        "launched",
+        "operating"
+      ]
+    },
+    "context_version": {
+      "$ref": "common.schema.json#/$defs/version"
+    },
+    "conversation_language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "document_language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operating_geographies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "intended_use": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "default_sensitivity": {
+      "$ref": "common.schema.json#/$defs/sensitivity"
+    },
+    "domains": {
+      "type": "object",
+      "properties": {
+        "foundation": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "business_model": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "products_services": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "market_intelligence": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "customer_intelligence": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "brand_communication": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "marketing_growth": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "operations_team": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "technology_data": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "governance_risks": {
+          "type": "object",
+          "properties": {
+            "applicability": {
+              "enum": [
+                "applicable",
+                "deferred",
+                "not_applicable"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicability": {
+                    "enum": [
+                      "deferred",
+                      "not_applicable"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "foundation",
+        "business_model",
+        "products_services",
+        "market_intelligence",
+        "customer_intelligence",
+        "brand_communication",
+        "marketing_growth",
+        "operations_team",
+        "technology_data",
+        "governance_risks"
+      ],
+      "additionalProperties": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "company_id",
+    "display_name",
+    "legal_name",
+    "maturity",
+    "context_version",
+    "conversation_language",
+    "document_language",
+    "operating_geographies",
+    "intended_use",
+    "context_owner",
+    "default_sensitivity",
+    "domains",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://context-architect.example/schemas/evidence-source.schema.json",
+  "title": "evidence-source",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "company_id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "enum": [
+        "user_statement",
+        "internal_document",
+        "product_observation",
+        "public_source",
+        "dataset"
+      ]
+    },
+    "evidence_class": {
+      "enum": [
+        "internal_structured",
+        "internal_unstructured",
+        "external_structured",
+        "external_unstructured"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "accessed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sensitivity": {
+      "$ref": "common.schema.json#/$defs/sensitivity"
+    },
+    "limitations": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "company_id",
+    "title",
+    "type",
+    "evidence_class",
+    "owner",
+    "locator",
+    "published_at",
+    "accessed_at",
+    "sensitivity",
+    "limitations"
+  ],
+  "additionalProperties": false
+}
+
