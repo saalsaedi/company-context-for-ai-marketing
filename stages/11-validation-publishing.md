@@ -12,7 +12,7 @@ Check coverage, sources, contradictions, review status, maturity fit, sensitive 
 ## Investigate
 Resolve only release blockers; defer noncritical gaps with owners and caveats. Run local validation if supported; otherwise record manual checks.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Does this release accurately describe the company and its open questions?
 - Are the stated limitations acceptable for the intended AI task?
 - Which owner should review the next material change?
@@ -22,6 +22,8 @@ Render master, operational context, selected domain packs, registers, progress a
 
 ## Validate
 Check IDs, dates, references, current/planned distinctions, approvals, artifact consistency, and use-specific truthfulness. Read generated prose for unsupported paraphrases.
+
+An early starter context is a partial draft, not this release. Do not approve unvisited stages or declare readiness merely because a founder reviewed the starter summary. Grouped approvals count only for the explicit topics/stages displayed for review.
 
 ## Approve
 Present the concrete release summary and caveats. Record the owner's review of this version; preserve already explicit approval.

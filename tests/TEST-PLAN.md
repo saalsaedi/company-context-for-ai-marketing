@@ -1,7 +1,7 @@
 # Validation and test plan
 
 ## Evidence levels
-Local contract tests check deterministic invariants. Manual scenario tests check language-model behavior in an actual host. A local pass does not establish Claude/ChatGPT activation, factual accuracy, interview quality, or persistent memory.
+Local contract tests check deterministic invariants. Independent simulations exercise actual generated replies against fictional inputs; manual platform tests check behavior in an installed host. Neither local tests nor simulation establish Claude/ChatGPT activation, real-founder usability or persistent memory. The [beginner scenario matrix](beginner-scenarios.md) defines the v1.1 behavior cases; record outcomes in [beginner-evaluation.md](beginner-evaluation.md).
 
 ## Automated checks
 Run Python's unittest discovery from the skill directory after installing requirements.txt. The suite validates all schema definitions, accepts the fictional idea-stage bundle, mutates it into invalid states, and tests conservative export and deterministic packaging. It uses temporary directories and no network or real customer data.
@@ -14,6 +14,7 @@ Checks include:
 - Public/internal filtering, source/notes leakage, staleness, blocked confidential export.
 - Immutable export destination, export manifest hashes, UTF-8 fidelity.
 - Package links, ZIP root, deterministic bytes and exclusion of caches/company folders.
+- Both installation archives carry the shared guided protocol and bilingual opening unchanged; checksums match exact bytes; previous-version downloads remain untouched; ChatGPT ZIP excludes leftover files; company-schema compatibility stays stable.
 
 ## Manual scenario matrix
 | ID | Scenario / file | Observable acceptance |

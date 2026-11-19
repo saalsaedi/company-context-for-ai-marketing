@@ -12,8 +12,10 @@ Identify buyer versus user, value exchange, revenue streams, sales motion, cost 
 ## Investigate
 Resolve currency, tax inclusion, billing period, contract scope and measurement period. Request aggregates rather than unnecessary customer-level financial data.
 
-Candidate questions (select only unanswered, useful questions):
-- Who pays, for what, and on what schedule?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who would pay for the product or service?
+- What would that person receive in return?
+- Have you decided how customers would pay, or is that still open?
 - Which prices are live today and which are experiments?
 - What costs or constraints most affect your ability to deliver?
 

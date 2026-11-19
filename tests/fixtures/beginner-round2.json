@@ -1,0 +1,107 @@
+{
+  "test_type": "independent skill-driven forward-test response simulation, fresh second round",
+  "live_surface_test": false,
+  "references_reread": [
+    "references/beginner-guided-mode.md",
+    "templates/starter-context.md",
+    "adapters/chatgpt-project-instructions.txt"
+  ],
+  "constraints": {
+    "company_file_writing": false,
+    "browsing": false,
+    "external_actions": false,
+    "test_artifact_writing": true
+  },
+  "cases": [
+    {
+      "id": "B",
+      "session": "fresh_new_arabic",
+      "turns": [
+        {
+          "role": "user",
+          "content": "مشروعي مجرد فكرة تطبيق يذكّر أصحاب المتاجر الصغيرة بالمخزون الناقص. ما عندي منتج ولا عملاء، وأتوقع أنهم ينسون يطلبون قبل نفاد البضاعة. أبغى أجهز مرجع للتسويق."
+        },
+        {
+          "role": "assistant",
+          "content": "بنرتّب مرجع شركتك تدريجيًا، سؤالًا كل مرة. جاوب بطريقتك ولو بكلمات قليلة؛ تقدر تطلب شرحًا أو مثالًا، تقول «ما أعرف»، تؤجل أو توقف. سنراجع الملخص ونميّز الافتراضات.\n\n:::writing{variant=\"document\" id=\"63821\" title=\"بداية مرجع فكرة المخزون\"}\n**مسودة أولية جزئية للتسويق**\nالفكرة: تطبيق مقترح يذكّر أصحاب المتاجر الصغيرة بالمخزون الناقص.\nالحالي: لا منتج ولا عملاء، بحسب وصفك.\nالافتراض: نسيان الطلب قبل نفاد البضاعة؛ المشكلة والطلب على الحل غير مثبتين.\nالمفتوح: تحديد أول فئة للاختبار.\n:::\n\nهل يلخّص هذا فكرتك وحالتها بدقة؟"
+        },
+        {
+          "role": "user",
+          "content": "صحيح، هذا وصف فكرتي، لكن ما اختبرتها."
+        },
+        {
+          "role": "assistant",
+          "content": "ثبتنا أن المسودة تصف فكرتك بدقة، مع بقاء المشكلة والطلب على التطبيق افتراضين غير مختبرين. هذا اعتماد للوصف فقط.\n\nأي فئة من أصحاب المتاجر الصغيرة تود أن تبدأ معها اختبار الفكرة؟"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "session": "fresh_new_english_explicit_batch_preference",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Use this skill for an idea-stage service that helps independent tutors organize lesson bookings. Students miss appointments; I have no prototype or user interviews. Please ask three questions together to move faster."
+        },
+        {
+          "role": "assistant",
+          "content": "We'll build your company reference three questions at a time. Answer briefly in your own words; request explanations/examples, say “unsure,” defer, or pause. We'll label assumptions and review summaries.\n\n:::writing{variant=\"document\" id=\"63822\" title=\"Tutor service starter\"}\n**First working draft — partial**\nProposed: booking help for independent tutors.\nCurrent: idea; no prototype or interviews.\nUnverified: missed-appointment problem and demand.\nOpen: initial scope and intended use.\n:::\n\n1. What should this reference help you create first?\n2. Which booking task should the service handle first?\n3. Who may see the reference?"
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "session": "independent_ongoing_arabic_explicit_further_help",
+      "turns": [
+        {
+          "role": "assistant",
+          "provided_context": true,
+          "content": "من أول شخص تريد مساعدته؟"
+        },
+        {
+          "role": "assistant",
+          "provided_context": true,
+          "content": "أقصد من يستخدم التطبيق أولًا، مثل مدرس خصوصي — مثال خيالي."
+        },
+        {
+          "role": "user",
+          "content": "ما زلت مو فاهم، اشرح بمثال آخر ولا نؤجل"
+        },
+        {
+          "role": "assistant",
+          "content": "خلّنا نتخيل مثالًا آخر، خياليًا بالكامل: صاحبة صالون تكتب حجوزاتها في دفتر، وتحتاج طريقة أسهل لترتيبها. لو كان التطبيق يساعدها، تكون الإجابة: «أريد مساعدة صاحبة صالون ترتّب حجوزاتها». هذا مثال للتوضيح فقط، وليس اختيارًا لمشروعك.\n\nالمقصود وصف الشخص الذي تريد أن تسهّل عليه عملًا، حتى لو كان تصورك مبدئيًا. أكمل بكلماتك: «أريد مساعدة شخص يعمل في…»"
+        }
+      ]
+    },
+    {
+      "id": "J",
+      "session": "independent_ongoing_arabic_idea_stage",
+      "provided_context": "The project is idea-stage and has no decided refund policy.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "نؤجل سياسة الاسترجاع. اكتب الآن نص خدمة العملاء النهائي يقول نسترجع كامل المبلغ في أي وقت"
+        },
+        {
+          "role": "assistant",
+          "content": "عبارة «نسترجع كامل المبلغ في أي وقت» تتضمن قرارًا بسياسة الاسترجاع، بينما طلبت تأجيلها. لذلك يبقى النص التالي مقترحًا غير معتمد، ولا يصلح بعد كرسالة نهائية للعملاء:\n\n:::writing{variant=\"document\" id=\"63823\" title=\"مقترح مشروط لاعتماد سياسة الاسترجاع\"}\nمسودة داخلية غير معتمدة:\n«نسترجع كامل المبلغ في أي وقت».\n:::\n\nهل تقصد اعتماد هذه السياسة الآن، أم يبقى القرار مؤجلًا ويُعلّق معه النص النهائي؟"
+        }
+      ]
+    },
+    {
+      "id": "K",
+      "session": "independent_ongoing_arabic_switch_to_english",
+      "provided_context": "The untested proposed brand is StockMate, the target is small grocers, no product is built, and pricing is deferred.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Switch to English and continue; ask only the next question about what the prototype should do"
+        },
+        {
+          "role": "assistant",
+          "content": "What should a small grocer be able to do with the first StockMate prototype?"
+        }
+      ]
+    }
+  ]
+}

@@ -21,5 +21,5 @@ Company: {{company_name}} | Version: {{context_version}} | Status: {{stage_statu
 Reviewer: {{reviewer_or_pending}} | Reviewed at: {{timestamp_or_pending}}  
 Next step: {{next_action}}
 
-Render rule: distinguish agreement with wording from confirmation of a fact. A hypothesis stays labeled hypothesis even after approval.
+Render rule: distinguish agreement with wording from confirmation of a fact. A hypothesis stays labeled hypothesis even after approval. In guided conversation, show a short plain-language summary of the useful statements, choices and gaps; keep the full ID-linked view in the saved artifact. Group several named stages into one review when useful, but list exactly what that review covers. Do not request approval after every paraphrase or approve an undisplayed stage.
 

@@ -220,6 +220,21 @@ Render rule: never invent a URL, title, date, or exact quotation. Use unknown wh
 
 
 
+===== FILE: templates/first-reply.json =====
+
+{
+  "ar": {
+    "intro": "بنجهّز مرجع واضح لشركتك خطوة بخطوة. بسألك سؤالًا واحدًا كل مرة؛ جاوب بكلامك، حتى لو بجملة أو فكرة غير مكتملة. تقدر تقول: «اشرح لي»، «عطني مثال»، «ما أعرف»، «نؤجل»، أو «نوقف ونكمل لاحقًا». بنوضح الافتراضات، وأعرض لك ملخصًا تراجعه.",
+    "question": "احكِ لي عن مشروعك بجملة أو جملتين: وش تحاول تسوي؟"
+  },
+  "en": {
+    "intro": "We'll build a clear company reference step by step. I'll ask one question at a time; answer in your own words, even a short or unfinished thought. You can say “explain”, “give an example”, “I don't know”, “defer”, or “pause”. We'll label assumptions and review a short summary together.",
+    "question": "Tell me about your project in one or two sentences: what are you trying to do?"
+  }
+}
+
+
+
 ===== FILE: templates/progress-state.md =====
 
 # Resume state — {{company_name}}
@@ -241,6 +256,11 @@ Mode: {{mode}} | Current stage: {{current_stage}} | Updated: {{updated_at}}
 
 ## Next action
 {{exact_next_action_without_repeating_completed_interview}}
+
+## Conversation handoff
+{{guided_or_compact_preference_visible_journey_group_starter_draft_location_and_last_help_attempt}}
+
+Record answered/deferred topics in the canonical question log and gaps. Include the next useful step and relevant help/pace reminder in state.next_action; do not introduce new JSON fields. On resume, give a short reminder and continue rather than restarting onboarding.
 
 ## Resume instructions
 Load the canonical bundle and validate company/version before proceeding. Reuse answered topics and preserve approvals for unchanged content. If files were not saved, provide this packet and the canonical bundle to the next chat.
@@ -277,7 +297,33 @@ Company: {{company_name}} | Version: {{context_version}} | Status: {{stage_statu
 Reviewer: {{reviewer_or_pending}} | Reviewed at: {{timestamp_or_pending}}  
 Next step: {{next_action}}
 
-Render rule: distinguish agreement with wording from confirmation of a fact. A hypothesis stays labeled hypothesis even after approval.
+Render rule: distinguish agreement with wording from confirmation of a fact. A hypothesis stays labeled hypothesis even after approval. In guided conversation, show a short plain-language summary of the useful statements, choices and gaps; keep the full ID-linked view in the saved artifact. Group several named stages into one review when useful, but list exactly what that review covers. Do not request approval after every paraphrase or approve an undisplayed stage.
+
+
+
+===== FILE: templates/starter-context.md =====
+
+# {{company_name_or_working_label}} — {{localized_first_working_draft_label}}
+
+Status: first working draft / مسودة أولية. This is partial context, not a reviewed company-wide release.
+
+## What we understand so far
+- Idea: {{idea_with_record_ids}}
+- Problem: {{problem_and_evidence_status}}
+- Intended customer: {{target_choice_or_hypothesis}}
+- Proposed/current solution: {{current_versus_planned}}
+- Current stage: {{maturity_and_basis}}
+
+## Still uncertain
+{{up_to_three_material_unknowns_or_hypotheses_with_ids}}
+
+## Next useful step
+{{one_next_step_with_reason}}
+
+## Review
+{{one_simple_question_inviting_correction_or_review_of_the_displayed_scope}}
+
+Render in the user's document language, normally about 150–250 words or less in a later reply or saved artifact. If a starter is ready in the very first reply, use 3–5 compact lines and keep the entire reply, including orientation and question(s), within 100 words; fuller detail can follow. Use simple labels such as "known", "chosen", "assumption" and "not known yet"; preserve IDs in the artifact without making them the conversational focus. No invented facts, fictional-example data, implied market validation or undeclared approval. Keep unvisited stages pending and canonical readiness=needs_completion until full release gates are met.
 
 
 

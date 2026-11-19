@@ -12,10 +12,10 @@ Identify systems of record, integrations, data flows, access ownership, constrai
 ## Investigate
 Clarify available versus planned integrations, meaningful data quality problems and source-of-truth conflicts. Never request secrets to describe an integration.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which systems hold the information the company trusts?
 - Which integrations work today?
-- What data may an AI assistant use, and for which tasks?
+- Which company information may the AI assistant use for this task?
 
 ## Synthesize
 Create system/data context, metric ownership, AI use boundaries, capability dependencies and appropriate source locators.

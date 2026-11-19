@@ -1,15 +1,15 @@
 # Local validation report
 
-Package: AI Company Context Architect 1.0.0  
-Date: 2026-11-14
+Package: AI Company Context Architect 1.1.0  
+Date: 2026-11-19
 
-Publication check: 2026-11-18. Re-ran all 38 contract tests and the skill frontmatter validator after adding the public title, bilingual installation guide, and Codex adapter; all passed. Live-platform acceptance remains not run.
+Release check: 2026-11-19. All 45 local tests passed (38 existing contract tests plus 7 distribution checks), the skill frontmatter validator passed, and the existing fictional company bundle still validated. Live-platform installation acceptance remains not run. Independent founder simulation is reported separately in [beginner-evaluation.md](beginner-evaluation.md).
 
 ## Observed local results
 
 | Check | Result |
 |---|---|
-| Python unittest contract suite | PASS: 38 tests |
+| Python unittest contract/distribution suite | PASS: 45 tests |
 | JSON Schema Draft 2020-12 definitions | PASS: all 8 schemas checked |
 | Fictional idea-stage bundle | PASS: no errors; one expected research-gap warning |
 | Skill frontmatter/name validation | PASS: bundled skill validator returned valid; description shortened to fit Claude's documented 200-character limit |
@@ -18,6 +18,10 @@ Publication check: 2026-11-18. Re-ran all 38 contract tests and the skill frontm
 | Export manifests, hashes and overwrite prevention | PASS |
 | Deterministic ZIP and single skill-folder root | PASS |
 | Arabic UTF-8 roundtrip | PASS |
+| Shared guided rules and opening in both distributions | PASS: source content preserved in native ZIP and ChatGPT references |
+| Both versioned ZIPs and SHA-256 checksums | PASS: deterministic bytes and correct hashes |
+| Previous downloads / company-schema compatibility | PASS: old archives untouched; schema stays 1.0.0 |
+| Independent founder simulations | PASS after a short-opening correction: 11 fictional sessions covering 12 behavior criteria; see evaluation and exact transcripts |
 
 The sample's unresolved market research is intentional. It is labeled ready_with_caveats for its limited planning use; no market-size claim is invented.
 
@@ -34,7 +38,7 @@ python <bundled-skill-creator>/scripts/quick_validate.py ai-company-context-arch
 ## Not run / limitations
 
 - Live Claude upload/activation and ChatGPT project installation: not run.
-- The 16 behavioral scenario categories on either target model: not run.
+- The original 16 platform scenario categories on Claude/ChatGPT: not run. Isolated v1.1 founder simulations are a separate evidence level, documented in the linked evaluation.
 - Real-company source truth, founder authority, interview quality and cross-chat persistence: not established by local tests.
 - Automated checks detect contract violations and some exact-scope conflicts; they do not prove factual correctness, detect every paraphrased contradiction, or enforce access control.
 - The exporter filters by labels and omits private metadata. Human review remains necessary for sensitive text incorrectly labeled public.

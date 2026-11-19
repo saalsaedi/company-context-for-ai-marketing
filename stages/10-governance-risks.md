@@ -12,7 +12,7 @@ Identify decision rights, material commercial/operational risks, privacy sensiti
 ## Investigate
 Ask which jurisdictions and commitments actually apply. Consult authoritative external material when a legal/regulatory claim is material and tools are available.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which commitments or risks should an AI assistant never overlook?
 - Who can approve changes to pricing, policy and external claims?
 - What information may be shared with which audience?

@@ -6,12 +6,13 @@ import hashlib
 import json
 import re
 import zipfile
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = "ai-company-context-architect"
 ALLOWED_DIRS = {"references", "stages", "templates", "schemas", "adapters", "scripts", "tests"}
-ALLOWED_ROOT = {"SKILL.md", "README.md", "IMPLEMENTATION-SPEC.md", "requirements.txt"}
+ALLOWED_ROOT = {"SKILL.md", "README.md", "IMPLEMENTATION-SPEC.md", "requirements.txt", "release.json", "CHANGELOG.md"}
 ALLOWED_SUFFIX = {".md", ".txt", ".json", ".py"}
 
 
@@ -48,34 +49,49 @@ def consolidate(paths):
                          + p.read_text(encoding="utf-8") for p in paths) + "\n"
 
 
+def write_zip(destination, entries, release_date):
+    stamp = (release_date.year, release_date.month, release_date.day, 0, 0, 0)
+    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+        for name, data in entries:
+            info = zipfile.ZipInfo(name, date_time=stamp)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o644 << 16
+            zf.writestr(info, data)
+
+
 def build(output):
     output = Path(output).resolve()
     if output == ROOT or ROOT in output.parents:
         raise ValueError("Distribution output must be outside the source skill directory.")
     paths = collect()
     check_links(paths)
+    release = json.loads((ROOT / "release.json").read_text(encoding="utf-8"))
+    version = release["version"]
+    if not re.fullmatch(r"\d+\.\d+\.\d+", version) or release["name"] != NAME:
+        raise ValueError("Invalid package version or name in release.json")
+    release_date = date.fromisoformat(release["release_date"])
     output.mkdir(parents=True, exist_ok=True)
-    archive = output / (NAME + "-1.0.0.zip")
-    with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        for p in paths:
-            rel = str(p.relative_to(ROOT)).replace("\\", "/")
-            info = zipfile.ZipInfo(NAME + "/" + rel, date_time=(2026, 11, 14, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
-            info.external_attr = 0o644 << 16
-            zf.writestr(info, p.read_bytes())
+    archive = output / (NAME + "-" + version + ".zip")
+    write_zip(archive, [(NAME + "/" + p.relative_to(ROOT).as_posix(), p.read_bytes()) for p in paths], release_date)
     chat = output / "chatgpt"
     chat.mkdir(exist_ok=True)
     mapping = {
         "project-instructions.txt": (ROOT / "adapters/chatgpt-project-instructions.txt").read_text(encoding="utf-8"),
         "workflow-reference.txt": consolidate([ROOT / "SKILL.md"] + sorted((ROOT / "references").glob("*.md")) + sorted((ROOT / "stages").glob("*.md"))),
-        "templates-and-schemas.txt": consolidate(sorted((ROOT / "templates").glob("*.md")) + sorted((ROOT / "schemas").glob("*.json"))),
+        "templates-and-schemas.txt": consolidate(sorted(p for p in paths if p.parent == ROOT / "templates") + sorted((ROOT / "schemas").glob("*.json"))),
         "SETUP.md": (ROOT / "adapters/chatgpt.md").read_text(encoding="utf-8"),
     }
     for name, content in mapping.items():
         (chat / name).write_bytes(content.encode("utf-8"))
+    chat_archive = output / ("chatgpt-setup-" + version + ".zip")
+    write_zip(chat_archive, [("chatgpt-setup/" + name, mapping[name].encode("utf-8")) for name in sorted(mapping)], release_date)
+    artifacts = [{"path": p.name, "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in (archive, chat_archive)]
+    checksums = "SHA256SUMS-" + version + ".txt"
+    (output / checksums).write_bytes(("\n".join(a["sha256"] + "  " + a["path"] for a in artifacts) + "\n").encode("utf-8"))
     manifest = {
-        "name": NAME, "version": "1.0.0", "source_files": len(paths),
+        "name": NAME, "version": version, "context_schema_version": release["context_schema_version"], "source_files": len(paths),
         "archive": archive.name, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+        "chatgpt_archive": chat_archive.name, "artifacts": artifacts, "checksums": checksums,
         "chatgpt_files": [{"path": "chatgpt/" + name, "sha256": hashlib.sha256((chat / name).read_bytes()).hexdigest()} for name in sorted(mapping)],
         "live_platform_tests": "not_run",
     }

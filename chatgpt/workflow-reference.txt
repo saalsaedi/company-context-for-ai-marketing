@@ -11,6 +11,8 @@ Portable workflow: AI Company Context Architect. Installed skill identifier: ai-
 
 Create a trustworthy company reference in the user's language. Combine founder knowledge, available documents, and scoped external research. The company, not the marketing department alone, is the unit of scope.
 
+Version 1.1.0: use the founder-friendly guided experience by default. Read [beginner-guided-mode](references/beginner-guided-mode.md) before the first reply. Briefly explain how to answer and request help, then ask one useful unanswered question. A short, rough idea is enough to begin; no intake form is required.
+
 ## Start and route
 
 1. Select Build, Audit, Update, or Export from the request. Infer obvious choices.
@@ -22,7 +24,7 @@ Create a trustworthy company reference in the user's language. Combine founder k
 ## Operating rules
 
 - Follow Review → Investigate → Synthesize → Validate → Approve for each applicable stage. Draft independent stages while a material decision awaits review; never treat silence as approval.
-- Ask 1–3 focused questions at a time. Reuse supplied answers. Explain why a missing answer affects the output. Offer "unknown / not decided" where appropriate.
+- Ask one focused question at a time in guided mode, with a brief explanation or fictional example only when helpful. Honor an explicit preference for a faster batch. Reuse supplied answers. Handle confusion, undecided choices, missing evidence, deferral and pause using the beginner protocol; do not loop on an unanswered question.
 - Use the latest explicit language preference, otherwise the language of the user's latest substantive message. Localize prose, preserve names and canonical JSON keys; change language without restarting.
 - Preserve six kinds: confirmed_fact, founder_decision, research_evidence, hypothesis, aspiration, unknown. Approval never turns a hypothesis into a fact.
 - Every material record has an ID, scope, provenance, dates, owner, confidence rationale, sensitivity, and review status. See [evidence-classification](references/evidence-classification.md).
@@ -33,6 +35,7 @@ Create a trustworthy company reference in the user's language. Combine founder k
 - Prepare drafts without extra permission. Ask for review of a concrete stage summary or changed strategic decision when needed; carry prior approval forward only for unchanged content.
 - Keep credentials and unnecessary personal data out. Apply [privacy-and-governance](references/privacy-and-governance.md); never imply that a context label enforces access control.
 - Save the canonical data and checkpoint after each meaningful stage/change when supported. Never claim cross-chat persistence from conversation memory alone.
+- Show a brief starter context when the basic idea, problem, customer, solution and stage are known or explicitly unknown. Label it a partial draft and keep full-release gates unchanged. Use the simple Understand → Clarify → Review journey in conversation, and grouped reviews with explicit scope.
 
 ## Deliver
 
@@ -81,6 +84,10 @@ If a user asks to audit and fix, that authorizes ordinary fixes in an Update can
 Dependencies require a usable draft or explicitly bounded unknown, not perfect information. Review → Investigate → Synthesize → Validate → Approve is the cycle inside every stage.
 
 ## Routing rules
+Apply [beginner-guided-mode](beginner-guided-mode.md) to the conversation. The 12 stages remain internal coverage and review controls. The user sees Understand the project → Clarify details → Review the reference; never display a compulsory 12-stage questionnaire at onboarding.
+
+One explicit review can approve several stage summaries shown together if the reviewed scope is named and each stage records it. Unshown or unvisited stages stay pending. The early starter context is a partial projection and cannot bypass release gates. Deferring a critical question allows independent conversation to continue but keeps its dependent output blocked.
+
 Read before asking. In idea mode, prioritize 01, 03, 05, and founder hypotheses; do not fabricate operating data. In an operating company, ingest evidence first and concentrate questions on discrepancies and ownership.
 
 A critical gap blocks only a dependent output. Record the blocked claim/task and an owner. A research gap can remain a caveat if the claim is excluded or labeled unverified. A strategic_decision gap remains pending until the founder decides; the model may offer options.
@@ -99,6 +106,90 @@ Transitions are enforced by the orchestrator and audited in state, not by a hidd
 After a meaningful change, save context.json and a readable progress view. Store mode, stage, review scope, questions, gaps, next action, base version, and observed capabilities. Never store private hidden reasoning.
 
 On resume, validate the bundle, company ID, schema version and base revision. Reconstruct from records; avoid re-running completed interviews. If a capability changes, update the capability report and continue with an honest fallback.
+
+
+
+===== FILE: references/beginner-guided-mode.md =====
+
+# Beginner-friendly founder experience — v1.1
+
+This is the default conversation experience for Build. Reuse its plain language and help handling in Audit, Update and Export without restarting discovery. Honor an explicit request for a faster, compact, or technical exchange. Do not make the user choose a mode before they can begin.
+
+## 1. First reply: explain how to answer, then start
+Read the request and available documents first. The first user-facing reply in a new skill session must briefly explain:
+- the useful outcome: a clear company reference built step by step;
+- the pace: one question at a time in guided mode;
+- how to answer: their own words, even a short or incomplete answer;
+- help: explain, give an example, I don't know, defer, or pause;
+- trust/review: guesses stay labeled, and a short summary will be reviewed.
+
+Use [first-reply.json](../templates/first-reply.json) as the concise Arabic/English starting copy; translate its meaning for other languages. Aim for 45–90 words. Keep the whole first reply within 100 words, including any draft and question(s). If the basics are already supplied, shorten the orientation and show a compact starter in 3–5 short lines; do not paste the fuller template into the opening. Put detailed record IDs in saved artifacts rather than crowding this first reply. Do not list all seven improvements, all 12 stages, schema fields, capability diagnostics, or internal status codes in this opening.
+
+Ask exactly one unanswered question. The default is a free description of the project, not a form. If the request already describes the project, briefly reflect that description and replace the default question with the highest-value missing one. If the user explicitly requests several questions, honor their pace and explain how to answer briefly.
+
+For an existing company in Audit/Update/Export, explain how corrections and unknowns can be supplied in one or two short sentences, then do the requested work or ask one blocking question. If enough information is present, do the work without a ceremonial question.
+
+## 2. Questions that are easy to answer
+Ask for one decision or piece of information per turn, even if a long sentence contains only one question mark. Do not hide a multi-part questionnaire behind a single question.
+
+Use everyday words: "Who would use this first?", "What problem does it solve?", "What can someone try today?" Explain necessary business terms on first use. Add one short purpose sentence only when it helps. Offer a small, clearly fictional example on request or when confusion is evident; do not overload every question with explanation.
+
+Accept bullets, fragments, dialect, mixed-language answers, or a narrative. Use voice input only if the host provides it; no voice capability is assumed.
+
+## 3. Help and "I don't know"
+Recognize ordinary language, not exact commands:
+- "اشرح لي" / "I don't understand": rephrase the same concept simply, optionally with one neutral example. Do not ask a new business question in the same response.
+- "عطني مثال" / "give an example": show a fictional example of the answer's shape, label it an example, and return to the same question. Never store it as company evidence.
+- "ما قررت" / "not decided": offer 2–3 plausible options with a short tradeoff and an open-text/defer option. Treat any recommendation as a proposal; no option is preapproved.
+- "ما عندي بيانات" / "not tested": record unknown or a clearly labeled hypothesis. Explain one possible future check when useful; do not invent numbers.
+- "ما أعرف" / "not sure": infer whether the difficulty is meaning, decision, or missing evidence from context. If ambiguous, make one simple clarification or offer "explain it / leave it for later", then move on.
+- "نؤجل" / "skip for now": mark the topic deferred with its consequence and next action. Move to an independent useful topic without requiring the user to justify deferral.
+- "نوقف" / "pause": stop asking business questions. Provide/save a checkpoint and say what to bring back. If writing is unavailable, return a copyable resume packet and do not claim a save.
+
+Default limit: one clarification/help attempt for a struggling topic, then offer deferral rather than looping. If the user explicitly requests further explanation, continue helping them. A critical gap can be deferred for the conversation while the dependent output stays blocked.
+
+## 4. Turn rough answers into useful context
+Reflect the core meaning in a short sentence when useful. Normalize actual supplied facts into records; do not demand polished wording or ask approval of every paraphrase. Ask a follow-up only if ambiguity changes a meaningful decision or claim.
+
+Keep alternatives proposed by the assistant visibly separate from founder statements. Choosing a target customer is a founder decision, not proof of demand. "No customers yet" is an answered topic; it does not justify another retention or revenue question.
+
+## 5. Show value early
+Build a [starter context](../templates/starter-context.md) once idea, problem, intended customer, proposed/current solution, and maturity are sufficiently described or explicitly unknown/deferred. Usually this takes around five useful answers; it is not a mandatory question quota or a time promise. If supplied material already covers them, draft immediately.
+
+Label it "first working draft / مسودة أولية". State knowns, hypotheses, and the few next gaps. It is not the full company release and remains needs_completion where required reviews/domains are incomplete. Do not feed it to the reviewed-release exporter or mark unvisited stages approved.
+
+Keep the starter draft brief (roughly one screen). Invite a correction or scoped review as the next single question; do not append another discovery question to that review request.
+
+## 6. Adapt to the company's actual stage
+For an idea: explore the problem, likely customer, proposed solution, current stage, and next useful test. No need for revenue, conversion, churn, complex operations or a final company name.
+For an MVP: clarify usable capabilities, pilot observations and learning goals. A mockup remains planned.
+For an operating company: read existing evidence first and ask only unresolved questions. Keep existing functionality; guided mode is not an excuse to erase detail or repeat discovery.
+
+Do not infer incorporation, funding, geography or maturity from vocabulary. Assess all ten domains proportionately; deferred/unknown is acceptable when explained. External research cannot decide the founder's strategy.
+
+## 7. Progress, grouped review and resume
+Show a simple journey when useful:
+- Understand the project / نفهم المشروع
+- Clarify details / نوضح التفاصيل
+- Review the reference / نراجع المرجع
+
+These are presentation groups over the 12 internal stages, not a replacement for coverage or approval gates. Show the current group at meaningful checkpoints, not every turn. Do not invent a completion percentage or fixed number of questions remaining.
+
+After a coherent set of answers, present a short summary for review. One review may cover multiple named topics/stages if the displayed scope is explicit and recorded; never silently approve undisplayed stages. Preserve previous approval for unchanged statements. Strategic decisions still require explicit owner approval.
+
+Use the existing question log, gap status, next_action and [progress template](../templates/progress-state.md) to remember answered/deferred topics, the last help attempt, whether a starter draft exists, and the next useful step. Do not add undeclared fields to the canonical schema. On resume, derive state from the saved artifacts and give a brief help reminder; do not repeat the full onboarding or answered questions.
+
+## Question examples
+| Purpose | Plain-language question |
+|---|---|
+| Idea | What are you trying to help someone do? |
+| Problem | What is difficult for them today? |
+| Customer | Who do you imagine trying this first? |
+| Offer | What would that person receive from you? |
+| Stage | Can someone use it today, or is it still an idea? |
+| Pricing | Have you decided how customers would pay, or is that still open? |
+
+Ask only the one that is useful now. Neutral examples show answer form; they must not steer the founder into an invented market or strategy.
 
 
 
@@ -152,16 +243,13 @@ After dated customer interviews, add research/customer evidence with sample limi
 # Adaptive interview protocol
 
 ## Opening
-Review attached sources and prior progress before speaking. Infer mode from the user's request. If identity, maturity, and purpose are already present, reflect them briefly and start the first unresolved point. Otherwise ask only what blocks routing.
-
-Example Arabic: "سأبدأ بالمعلومات المتاحة، ثم أسأل عن الفجوات فقط. هل المشروع فكرة، أم منتج أولي، أم أُطلق بالفعل؟"
-Example English: "I found the product brief and pricing sheet. I can reuse those. Who is the primary customer you want this context to serve?"
+Review attached sources and prior progress before speaking. Infer mode from the user's request. Follow [beginner-guided-mode.md](beginner-guided-mode.md) for the short first reply, help handling, early draft, maturity adaptation and progress. Use [first-reply.json](../templates/first-reply.json) for starting copy, adapted to what the user has already supplied. Do not request an intake form or repeat a known project description. On resume, give only a brief help reminder and continue from the saved next step.
 
 ## Question selection
 1. Build an internal list of missing facts and decisions.
 2. Exclude answered questions using state.questions and existing sources.
 3. Rank: intended-use blocker → contradictory material claim → strategic decision → high-value unknown → optional detail.
-4. Ask 1–3 related questions. Use a recommendation when useful; include unknown/not decided as a legitimate answer.
+4. Ask one focused question by default. Only batch if the user explicitly prefers it. Use everyday language and a brief purpose or fictional example when helpful; accept unknown/not decided/defer. Do not bundle multiple information requests into one sentence.
 5. Normalize the answer into atomic records with source IDs. Preserve the original scope; do not invent dates, quantities, or customer validation.
 6. Update the question's status to answered, deferred, or open. A rephrasing is not a new question if it asks the same thing.
 
@@ -173,14 +261,14 @@ Use explicit user preference first, otherwise the most recent substantive messag
 Switch on request immediately. Translate labels and prose, keep canonical keys, IDs, trademarks, currencies, and source locators stable. Ask about ambiguous dates such as 03/04 only if relevant.
 
 ## Synthesis and review
-Use templates/stage-summary.md. Separate "documented", "proposed decisions", and "open questions". Ask review only after a concrete summary exists. A broad "looks good" approves only the clearly displayed scope; it does not approve hidden changes or fabricate missing evidence. Where review is already explicit, record it and proceed.
+Use templates/stage-summary.md. Separate "documented", "proposed decisions", and "open questions". Normalize rough answers without asking approval for every paraphrase. After a coherent set of topics, request one review of a short summary with explicit scope; one review may cover several named stages. A broad "looks good" approves only that displayed scope; it does not approve hidden changes or fabricate missing evidence. Where review is already explicit, record it and proceed. Do not append a new discovery question to a review request.
 
 Review can approve honest uncertainty. An approved hypothesis remains a hypothesis. The founder can choose a strategy, but cannot make an unsupported market claim empirically verified.
 
 ## Interview boundaries
 Do not demand personal records or credentials. Ask for aggregated operational facts where sufficient. When the company lacks evidence, propose a test or record unknown instead of asking the same question repeatedly.
 
-At pause or session end, provide current stage, saved version, unanswered IDs, next question, and which artifacts the user must bring back if persistence is unavailable.
+At pause or session end, stop business questions. Provide a brief checkpoint: what is known, what was deferred, the next step, and saved artifacts/version if any. Keep internal IDs in the resume packet, not the conversational headline. If persistence is unavailable, give a copyable packet and say the user must save it; never claim a file was saved.
 
 
 
@@ -343,15 +431,18 @@ User request, attached documents, existing context/state if available.
 Identify the company and check whether this is a new build or an existing revision. Inventory sources without assuming all can be read.
 
 ## Investigate
-Establish maturity, intended use, audience, company owner and available tools. Determine conversation/document language from the user; ask only if ambiguous.
+Apply the [guided first-reply protocol](../references/beginner-guided-mode.md): explain how to answer and ask for help briefly, then invite a free project description or ask the next unanswered question. Establish maturity, intended use, audience and ownership progressively; do not ask for all of them in the opening. Inspect available tools quietly and explain limitations only when relevant. Determine language from the user; ask only if ambiguous.
 
-Candidate questions (select only unanswered, useful questions):
-- What does the company do, and how far along is it?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Tell me about your project in one or two sentences: what are you trying to do?
+- Can someone use it today, or is it still an idea?
 - What should an AI assistant be able to do with this context?
 - Which existing documents or decisions should we treat as the starting point?
 
 ## Synthesize
 Create profile, source inventory, capability map, domain applicability, and a first gap list. Use a working company label if no final name exists.
+
+Once the basic idea, problem, intended customer, solution and stage are covered or explicitly unknown, show the starter-context template. Keep this labeled a first working draft; it does not imply complete domain coverage or approval.
 
 ## Validate
 No mix-up between companies; no invented incorporation, geography or revenue. Each tool capability is available, unavailable, or unknown based on observation.
@@ -390,10 +481,12 @@ Extract mission, problem, vision, values, legal/trading identity, geography, and
 ## Investigate
 Ask the founder to resolve ambiguous intent and priorities. Verify formal company facts only when they matter to the context.
 
-Candidate questions (select only unanswered, useful questions):
-- Whose problem exists strongly enough for you to build this company?
-- What is the company trying to achieve, and what will it deliberately avoid?
-- Which name and operating geography should we use today?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who are you hoping to help first?
+- What would you like this project to achieve?
+- What should the project stay away from?
+- Do you have a project name yet? A temporary name is fine.
+- Where do you want to start offering it?
 
 ## Synthesize
 Separate current identity and history from aspirations. Record explicit strategic choices as founder_decision, beliefs as hypothesis.
@@ -435,8 +528,10 @@ Identify buyer versus user, value exchange, revenue streams, sales motion, cost 
 ## Investigate
 Resolve currency, tax inclusion, billing period, contract scope and measurement period. Request aggregates rather than unnecessary customer-level financial data.
 
-Candidate questions (select only unanswered, useful questions):
-- Who pays, for what, and on what schedule?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who would pay for the product or service?
+- What would that person receive in return?
+- Have you decided how customers would pay, or is that still open?
 - Which prices are live today and which are experiments?
 - What costs or constraints most affect your ability to deliver?
 
@@ -480,9 +575,10 @@ List each offer, intended job, availability, included functionality, limits, int
 ## Investigate
 Inspect current materials or a demo if available. Ask the owner to distinguish generally available, pilot, prototype and planned capabilities.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - What can a customer actually use or buy today?
-- What does the offer include, and what is explicitly outside it?
+- What would a customer receive?
+- What would fall outside the offer?
 - Which capabilities are planned but should never be promised yet?
 
 ## Synthesize
@@ -525,8 +621,9 @@ Separate the founder's market thesis from existing external evidence. Include su
 ## Investigate
 Research specific uncertainties using dated primary sources. Capture competitor offer/pricing dates and comparable scope. Use a small purposeful source set.
 
-Candidate questions (select only unanswered, useful questions):
-- Which geography and customer category should the market comparison cover?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Which location should we focus on for the comparison?
+- Which type of customer should the comparison cover?
 - What do potential customers use instead today?
 - Which external uncertainty most affects the company's next decision?
 
@@ -570,9 +667,11 @@ Distinguish user, buyer, beneficiary and decision-maker. Extract jobs, triggers,
 ## Investigate
 Look for direct customer evidence. Ask the founder about priority segments; do not treat adjacent competitor reviews as direct company-customer proof.
 
-Candidate questions (select only unanswered, useful questions):
-- Who experiences the problem and who authorizes the purchase?
-- What have customers actually said or done, and how many did you observe?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who experiences this problem?
+- Who would decide to pay for a solution?
+- What have potential customers actually told you or tried?
+- How many people did you hear this from?
 - Who is currently outside your intended audience?
 
 ## Synthesize
@@ -615,9 +714,10 @@ Extract positioning, promise, tone, vocabulary, language needs, visual preferenc
 ## Investigate
 Ask for examples of wording that feels right or wrong. Review proof for differentiation claims; request definition if a framework label is ambiguous.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - How should customers feel when reading your communication?
-- Which phrases sound like you, and which do not?
+- What is one phrase that sounds like your company?
+- Is there wording you want to avoid?
 - Which promise can you support today?
 
 ## Synthesize
@@ -658,9 +758,9 @@ Channel plans, campaign summaries, funnel definitions, sales process, aggregated
 Map acquisition, conversion, sales handoffs, retention and referrals. Extract actual metrics and attribution assumptions.
 
 ## Investigate
-Resolve period, spend currency, conversion denominator, channel/source attribution and capacity constraints. Ask what growth decision needs context.
+When operating data exists, resolve period, spend currency, conversion denominator, channel/source attribution and capacity constraints. Explain unfamiliar terms. For an idea with no users, skip performance questions and focus on one practical learning step; a simple plan to talk with likely customers is enough. Ask what growth decision needs context only if it is unresolved and relevant.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which channels currently bring customers, if any?
 - What does a conversion mean in your business?
 - Which growth experiment should the next AI task support?
@@ -705,9 +805,10 @@ Map customer delivery from intake to outcome, handoffs, support/escalation, recu
 ## Investigate
 Ask for owners, realistic capacity, exceptions, dependencies and decision rights. Prefer role names over personal details.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - What happens after a customer buys?
-- Who owns delivery, support and exception decisions?
+- Who would deliver the product or service?
+- Who would help a customer who has a problem?
 - Which constraints or handoffs most often slow the work?
 
 ## Synthesize
@@ -750,10 +851,10 @@ Identify systems of record, integrations, data flows, access ownership, constrai
 ## Investigate
 Clarify available versus planned integrations, meaningful data quality problems and source-of-truth conflicts. Never request secrets to describe an integration.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which systems hold the information the company trusts?
 - Which integrations work today?
-- What data may an AI assistant use, and for which tasks?
+- Which company information may the AI assistant use for this task?
 
 ## Synthesize
 Create system/data context, metric ownership, AI use boundaries, capability dependencies and appropriate source locators.
@@ -795,7 +896,7 @@ Identify decision rights, material commercial/operational risks, privacy sensiti
 ## Investigate
 Ask which jurisdictions and commitments actually apply. Consult authoritative external material when a legal/regulatory claim is material and tools are available.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which commitments or risks should an AI assistant never overlook?
 - Who can approve changes to pricing, policy and external claims?
 - What information may be shared with which audience?
@@ -840,7 +941,7 @@ Check coverage, sources, contradictions, review status, maturity fit, sensitive 
 ## Investigate
 Resolve only release blockers; defer noncritical gaps with owners and caveats. Run local validation if supported; otherwise record manual checks.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Does this release accurately describe the company and its open questions?
 - Are the stated limitations acceptable for the intended AI task?
 - Which owner should review the next material change?
@@ -850,6 +951,8 @@ Render master, operational context, selected domain packs, registers, progress a
 
 ## Validate
 Check IDs, dates, references, current/planned distinctions, approvals, artifact consistency, and use-specific truthfulness. Read generated prose for unsupported paraphrases.
+
+An early starter context is a partial draft, not this release. Do not approve unvisited stages or declare readiness merely because a founder reviewed the starter summary. Grouped approvals count only for the explicit topics/stages displayed for review.
 
 ## Approve
 Present the concrete release summary and caveats. Record the owner's review of this version; preserve already explicit approval.

@@ -2,7 +2,7 @@
 
 Build a reusable, evidence-linked company reference for AI marketing and company-wide work.
 
-**English / العربية · Claude · Codex · ChatGPT · v1.0.0**
+**English / العربية · Claude · Codex · ChatGPT · v1.1.0**
 
 This portable skill combines adaptive founder interviews, document review, and targeted research. It helps idea-stage startups, MVPs, and operating companies capture what is known, what has been decided, and what still needs testing.
 
@@ -11,8 +11,8 @@ The underlying workflow and installed identifier remain **AI Company Context Arc
 ## Download
 
 - [Latest release and installation files](https://github.com/saalsaedi/company-context-for-ai-marketing/releases/latest)
-- [Claude / Codex skill ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/ai-company-context-architect-1.0.0.zip)
-- [ChatGPT setup ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/chatgpt-setup-1.0.0.zip)
+- [Claude / Codex skill ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/ai-company-context-architect-1.1.0.zip)
+- [ChatGPT setup ZIP](https://github.com/saalsaedi/company-context-for-ai-marketing/raw/refs/heads/main/downloads/chatgpt-setup-1.1.0.zip)
 
 Use the packaged skill ZIP for installation. It contains the correctly named skill folder and supporting files.
 
@@ -23,7 +23,7 @@ Use the packaged skill ZIP for installation. It contains the correctly named ski
 - **Update:** revise context while preserving history and unchanged approvals.
 - **Export:** create task- and audience-specific context for AI assistants.
 
-Includes 12 stage protocols, 8 JSON Schemas, 9 output templates, shared interview/research/validation guidance, and optional local helpers.
+Includes 12 stage protocols, 8 JSON Schemas, 10 Markdown output templates and bilingual opening copy, shared interview/research/validation guidance, and optional local helpers.
 
 Six kinds stay distinct: confirmed facts, founder decisions, research evidence, hypotheses, aspirations, and unknowns. Approving a hypothesis does not make it a fact.
 
@@ -59,36 +59,39 @@ For project-local use, put the folder in .agents/skills/ inside the project. See
 
 The files are also in the [chatgpt folder](https://github.com/saalsaedi/company-context-for-ai-marketing/tree/main/chatgpt). See the [ChatGPT adapter](adapters/chatgpt.md).
 
-## First message
+## Start with one sentence
 
 ~~~text
-Use AI Company Context Architect in Build mode to create the core context for my company.
-Company: [name]
-What we do: [short description]
-Stage: [idea / MVP / launched / operating]
-Available material: [attached documents / no documents yet]
-Main AI use: [marketing, product, support, or another task]
-
-Read the skill instructions and available material first. Speak in my preferred language. Ask 1–3 useful questions at a time and reuse information I already supplied. Keep facts, decisions, hypotheses, goals, and unknowns distinct. Show each stage summary for review. Save the context and a resume packet when supported.
+Use AI Company Context Architect. Help me build my company reference, one question at a time.
 ~~~
+
+Add a rough idea if you have one. No company name, documents, business vocabulary or completed questionnaire is required. The skill explains how to reply, uses your own words, offers help and shows a short first draft early. That draft clearly marks unknowns and still needs the remaining company coverage and review.
+
+You can say **explain**, **give an example**, **I don't know**, **defer**, or **pause**. If you want a faster pace, ask for several questions together. On resume, provide the latest saved context and progress packet.
 
 ## البدء بالعربية
 
-السكيل تساعدك في بناء مرجع موثوق للشركة تستخدمه مع الذكاء الاصطناعي، وتشمل التسويق وبقية مجالات الشركة. لغة المحاورة والمخرجات تتكيف مع المستخدم.
-
-- **Claude:** حمّل حزمة السكيل من الإصدار، وارفع ملف ZIP في Customize → Skills ثم فعّله.
-- **Codex:** فك الحزمة وانسخ مجلد السكيل كاملًا إلى .agents/skills في مجلد المستخدم.
-- **ChatGPT:** حمّل حزمة الإعداد، والصق التعليمات في مشروع، وأرفق ملفّي التشغيل والقوالب.
+السكيل ترتّب معلومات شركتك في مرجع تستخدمه مع الذكاء الاصطناعي. تقدر تبدأ حتى لو مشروعك مجرد فكرة، وما عندك اسم أو مستندات.
 
 ابدأ بهذه الرسالة:
 
 ~~~text
-استخدم مهارة AI Company Context Architect لبناء سياق شركتي بالكامل.
-اسم الشركة: [الاسم]
-فكرتها: [الوصف]
-مرحلتها: [فكرة / منتج أولي / أُطلقت / شركة تعمل]
-تحدث معي بالعربية. اقرأ التعليمات والمستندات أولًا، ثم اسألني من سؤال إلى ثلاثة أسئلة في كل مرة. فرّق بين الحقائق والفرضيات والقرارات والأهداف، واعرض ملخص كل مرحلة للمراجعة.
+استخدم سكيل AI Company Context Architect وساعدني أبني مرجع شركتي، سؤال واحد كل مرة.
 ~~~
+
+تكون البداية بهذا الأسلوب، ويتغير السؤال إذا سبق وشرحت مشروعك:
+
+> بنجهّز مرجع واضح لشركتك خطوة بخطوة. بسألك سؤالًا واحدًا كل مرة؛ جاوب بكلامك، حتى لو بجملة أو فكرة غير مكتملة. تقدر تقول: «اشرح لي»، «عطني مثال»، «ما أعرف»، «نؤجل»، أو «نوقف ونكمل لاحقًا». بنوضح الافتراضات، وأعرض لك ملخصًا تراجعه.
+>
+> **احكِ لي عن مشروعك بجملة أو جملتين: وش تحاول تسوي؟**
+
+الرد بجملة أو نقاط يكفي. إذا ما فهمت السؤال، اطلب شرحًا أو مثالًا. وإذا ما قررت أو ما عندك بيانات، قل ذلك؛ السكيل تساعدك بالخيارات وتوضح الافتراضات. تقدر تؤجل أي موضوع أو توقف وتكمل من ملخص التقدم. ستظهر مسودة أولية مبكرًا، ثم تُستكمل تفاصيل الشركة ومراجعتها.
+
+## Upgrade from v1.0
+
+Keep your company context and progress files in a separate workspace. Download v1.1.0, then replace the older skill in Claude using its Skills settings, or replace the installed ai-company-context-architect folder in Codex. Start a new chat. In ChatGPT, replace the project instructions and both reference files with the new versions; remove the older copies to avoid conflicting instructions. Supply your saved company context to continue.
+
+The installed skill name and company schema remain unchanged. Old company bundles remain supported. [Release notes](CHANGELOG.md) describe the seven improvements; the old v1.0.0 release stays available.
 
 ## Outputs and resumption
 
@@ -119,7 +122,7 @@ python scripts/validate_context.py tests/fixtures/idea-company.json --as-of 2026
 python scripts/build_package.py --output-dir ../dist
 ~~~
 
-The build writes a native skill ZIP and consolidated ChatGPT reference files outside the source directory. No credentials or API calls are required.
+The build writes both installation ZIPs, consolidated ChatGPT reference files, and versioned SHA-256 checksums outside the source directory, using release.json. No credentials or API calls are required.
 
-**Validation status:** 38 local contract tests passed. Live Claude/Codex/ChatGPT activation and model-behavior acceptance tests have not been run. Schema checks do not certify the factual truth of company statements.
+**Validation status:** see the [observed validation report](tests/VALIDATION-REPORT.md) for executed checks and limitations. Live Claude/ChatGPT installation acceptance remains pending. Schema checks do not certify the factual truth of company statements.
 

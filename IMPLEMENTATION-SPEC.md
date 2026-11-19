@@ -1,8 +1,8 @@
 # Final implementation specification
 
 Product: AI Company Context Architect  
-Release: 1.0.0  
-Specification date: 2026-11-14  
+Release: 1.1.0  
+Specification date: 2026-11-19  
 Scope: portable hybrid skill, entire company, adaptive conversation language.
 
 ## 1. Accepted design and boundaries
@@ -11,7 +11,7 @@ The approved conversation selected the hybrid advisor: interview for private int
 
 Four modes are required in v1: Build, Audit, Update, Export. Twelve stages remain the navigation backbone. All ten substantive domains receive an applicability decision; a small company need not invent departments, metrics, or policies it does not yet have.
 
-This release includes instructions, operational protocols, eight JSON Schemas, Markdown templates, two host adapters, fictional fixtures, and local validation/export/build helpers. It is an executable reference package, not a hosted application or autonomous integration service. Live-platform acceptance is a separate release check.
+This release includes instructions, operational protocols, eight JSON Schemas, Markdown templates, three host adapters, fictional fixtures, and local validation/export/build helpers. It is an executable reference package, not a hosted application or autonomous integration service. Live-platform acceptance is a separate release check.
 
 No CRM connection, database, account creation, employee messaging, scheduled job, or cross-platform synchronization is required. "Publish" below means create a reviewed local/context artifact. External sharing is a distinct action governed by the user's request and available permissions.
 
@@ -39,7 +39,7 @@ User + supplied documents + optional scoped public research
 |---|---|---|---|
 | Host adapter | User request, available tools | Map core workflow to host capabilities | Explicit capability map; degrade honestly |
 | Mode router | Intent, existing bundle | Choose one of four modes | Build by default only when no context exists |
-| Interview engine | Evidence, gaps, maturity | Select highest-value unanswered questions | Small batch, question log, normalized responses |
+| Interview engine | Evidence, gaps, maturity | Select highest-value unanswered questions | One question by default, help handling, question log, normalized responses |
 | Research engine | External gaps, permitted scope | Retrieve and compare relevant sources | Source register; inaccessible sources stay unresolved |
 | Evidence engine | Statements, extracts, observations | Assign kind, provenance, dates, confidence | Atomic records; no invented citations |
 | Stage engine | Progress, dependencies, gaps | Route, checkpoint, reopen affected stages | Stage summary + review request where needed |
@@ -58,7 +58,10 @@ ai-company-context-architect/
   README.md
   IMPLEMENTATION-SPEC.md
   requirements.txt
+  release.json
+  CHANGELOG.md
   references/
+    beginner-guided-mode.md
     interview-protocol.md
     adaptive-stage-engine.md
     research-methodology.md
@@ -80,6 +83,8 @@ ai-company-context-architect/
     10-governance-risks.md
     11-validation-publishing.md
   templates/
+    first-reply.json
+    starter-context.md
     discovery-brief.md
     stage-summary.md
     company-context-master.md
@@ -100,6 +105,7 @@ ai-company-context-architect/
     release-manifest.schema.json
   adapters/
     claude.md
+    codex.md
     chatgpt.md
     chatgpt-project-instructions.txt
   scripts/
@@ -115,6 +121,9 @@ ai-company-context-architect/
     context-update.md
     adversarial-and-portability.md
     test_contracts.py
+    test_distribution.py
+    beginner-scenarios.md
+    beginner-evaluation.md
     fixtures/idea-company.json
 ~~~
 
@@ -206,7 +215,7 @@ Metrics need unit, period, denominator/population, geography, and observation da
 
 ## 8. Interview and research behavior
 
-Ask the most consequential unanswered question first. Prefer one to three questions; do not ask an entire domain catalog. Extract already supplied answers and quote/paraphrase them for review instead of re-asking. Keep the question log for cross-session deduplication.
+Ask the most consequential unanswered question first. Ask one meaningful question at a time by default; batch only at the user's explicit preference. Do not ask an entire domain catalog. Extract already supplied answers and quote/paraphrase them for review instead of re-asking. Keep the question log for cross-session deduplication.
 
 Source selection follows question type:
 - Private intent and strategic choice: founder or delegated owner.
@@ -216,6 +225,16 @@ Source selection follows question type:
 - Legal or regulated claims: jurisdiction-specific authoritative evidence and unresolved review needs.
 
 Default research budget is a small scoped pass (up to five useful sources per external question). Stop when the specific gap is adequately resolved, evidence remains unavailable, or scope/time requested by the user is reached. This is a working convention, not a reason to omit necessary verification.
+
+### Guided experience in v1.1
+
+The default first reply explains the outcome, pace, acceptable rough answers, help/defer/pause phrases, and review in roughly 45–90 words. Then it asks one unanswered question. The entire opening stays within 100 words, including a compact starter draft when enough context already exists and any explicitly requested question batch. Fuller starter details can follow. It does not expose internal stages or require a form. The shared contract is references/beginner-guided-mode.md and the starting copy is templates/first-reply.json; the ChatGPT adapter embeds the essential behavior so it does not depend on perfect retrieval.
+
+Distinguish unclear meaning, undecided strategy and missing evidence. Help once, then offer deferral unless more explanation is requested. Accept short or unpolished answers. Assistant-generated suggestions stay proposals. Pause stops questions and creates a truthful checkpoint or copyable resume packet.
+
+Once the basic idea, problem, customer, solution and maturity are known or explicitly unknown, show a short starter-context draft, usually within about five useful answers. This is a partial projection, not a release or a question quota. It cannot mark unvisited stages approved, satisfy missing coverage, or enter the reviewed-release exporter. The schema stays 1.0.0. Use existing questions, gaps, next_action and the readable progress file; do not add new canonical properties.
+
+Present Understand project → Clarify details → Review reference while retaining the 12 internal stages. Group review of named, displayed topics without repeated paraphrase approval. Adapt depth to maturity; an idea does not need invented operating metrics. Save the last help attempt, deferred topics and next step for resumption.
 
 ## 9. Language contract
 

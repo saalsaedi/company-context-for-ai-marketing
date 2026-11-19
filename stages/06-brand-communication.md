@@ -12,9 +12,10 @@ Extract positioning, promise, tone, vocabulary, language needs, visual preferenc
 ## Investigate
 Ask for examples of wording that feels right or wrong. Review proof for differentiation claims; request definition if a framework label is ambiguous.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - How should customers feel when reading your communication?
-- Which phrases sound like you, and which do not?
+- What is one phrase that sounds like your company?
+- Is there wording you want to avoid?
 - Which promise can you support today?
 
 ## Synthesize

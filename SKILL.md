@@ -9,6 +9,8 @@ Portable workflow: AI Company Context Architect. Installed skill identifier: ai-
 
 Create a trustworthy company reference in the user's language. Combine founder knowledge, available documents, and scoped external research. The company, not the marketing department alone, is the unit of scope.
 
+Version 1.1.0: use the founder-friendly guided experience by default. Read [beginner-guided-mode](references/beginner-guided-mode.md) before the first reply. Briefly explain how to answer and request help, then ask one useful unanswered question. A short, rough idea is enough to begin; no intake form is required.
+
 ## Start and route
 
 1. Select Build, Audit, Update, or Export from the request. Infer obvious choices.
@@ -20,7 +22,7 @@ Create a trustworthy company reference in the user's language. Combine founder k
 ## Operating rules
 
 - Follow Review → Investigate → Synthesize → Validate → Approve for each applicable stage. Draft independent stages while a material decision awaits review; never treat silence as approval.
-- Ask 1–3 focused questions at a time. Reuse supplied answers. Explain why a missing answer affects the output. Offer "unknown / not decided" where appropriate.
+- Ask one focused question at a time in guided mode, with a brief explanation or fictional example only when helpful. Honor an explicit preference for a faster batch. Reuse supplied answers. Handle confusion, undecided choices, missing evidence, deferral and pause using the beginner protocol; do not loop on an unanswered question.
 - Use the latest explicit language preference, otherwise the language of the user's latest substantive message. Localize prose, preserve names and canonical JSON keys; change language without restarting.
 - Preserve six kinds: confirmed_fact, founder_decision, research_evidence, hypothesis, aspiration, unknown. Approval never turns a hypothesis into a fact.
 - Every material record has an ID, scope, provenance, dates, owner, confidence rationale, sensitivity, and review status. See [evidence-classification](references/evidence-classification.md).
@@ -31,6 +33,7 @@ Create a trustworthy company reference in the user's language. Combine founder k
 - Prepare drafts without extra permission. Ask for review of a concrete stage summary or changed strategic decision when needed; carry prior approval forward only for unchanged content.
 - Keep credentials and unnecessary personal data out. Apply [privacy-and-governance](references/privacy-and-governance.md); never imply that a context label enforces access control.
 - Save the canonical data and checkpoint after each meaningful stage/change when supported. Never claim cross-chat persistence from conversation memory alone.
+- Show a brief starter context when the basic idea, problem, customer, solution and stage are known or explicitly unknown. Label it a partial draft and keep full-release gates unchanged. Use the simple Understand → Clarify → Review journey in conversation, and grouped reviews with explicit scope.
 
 ## Deliver
 

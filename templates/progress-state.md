@@ -18,6 +18,11 @@ Mode: {{mode}} | Current stage: {{current_stage}} | Updated: {{updated_at}}
 ## Next action
 {{exact_next_action_without_repeating_completed_interview}}
 
+## Conversation handoff
+{{guided_or_compact_preference_visible_journey_group_starter_draft_location_and_last_help_attempt}}
+
+Record answered/deferred topics in the canonical question log and gaps. Include the next useful step and relevant help/pace reminder in state.next_action; do not introduce new JSON fields. On resume, give a short reminder and continue rather than restarting onboarding.
+
 ## Resume instructions
 Load the canonical bundle and validate company/version before proceeding. Reuse answered topics and preserve approvals for unchanged content. If files were not saved, provide this packet and the canonical bundle to the next chat.
 

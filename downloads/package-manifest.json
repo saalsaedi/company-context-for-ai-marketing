@@ -1,0 +1,39 @@
+{
+  "name": "ai-company-context-architect",
+  "version": "1.1.0",
+  "context_schema_version": "1.0.0",
+  "source_files": 66,
+  "archive": "ai-company-context-architect-1.1.0.zip",
+  "sha256": "07e430096d804799df7bd7f0b7110d32b5d58c0a112948d2b6521f024c46e84d",
+  "chatgpt_archive": "chatgpt-setup-1.1.0.zip",
+  "artifacts": [
+    {
+      "path": "ai-company-context-architect-1.1.0.zip",
+      "sha256": "07e430096d804799df7bd7f0b7110d32b5d58c0a112948d2b6521f024c46e84d"
+    },
+    {
+      "path": "chatgpt-setup-1.1.0.zip",
+      "sha256": "e5f4ec5d59acf608a2bc551edfe9181e91cb62b06fc49fa676d45fd5ad1dcb1f"
+    }
+  ],
+  "checksums": "SHA256SUMS-1.1.0.txt",
+  "chatgpt_files": [
+    {
+      "path": "chatgpt/SETUP.md",
+      "sha256": "cf3ef5ff65d13a66158f9d46f9870162dec6deabbe484c842512b549da106cca"
+    },
+    {
+      "path": "chatgpt/project-instructions.txt",
+      "sha256": "4a909c3c5c3a79a74855fb66648af8b40a9f3f6a1b535933640d60c8152a5be2"
+    },
+    {
+      "path": "chatgpt/templates-and-schemas.txt",
+      "sha256": "bbb544fbbee00b2260969e89d241c1f975d96b0a7eb7238c37b3e3a1e012d730"
+    },
+    {
+      "path": "chatgpt/workflow-reference.txt",
+      "sha256": "cf4e014376878d7adb2412efa81e6325e48bf4ac183661af4f9dd3d7891fa991"
+    }
+  ],
+  "live_platform_tests": "not_run"
+}

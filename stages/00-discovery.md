@@ -10,15 +10,18 @@ User request, attached documents, existing context/state if available.
 Identify the company and check whether this is a new build or an existing revision. Inventory sources without assuming all can be read.
 
 ## Investigate
-Establish maturity, intended use, audience, company owner and available tools. Determine conversation/document language from the user; ask only if ambiguous.
+Apply the [guided first-reply protocol](../references/beginner-guided-mode.md): explain how to answer and ask for help briefly, then invite a free project description or ask the next unanswered question. Establish maturity, intended use, audience and ownership progressively; do not ask for all of them in the opening. Inspect available tools quietly and explain limitations only when relevant. Determine language from the user; ask only if ambiguous.
 
-Candidate questions (select only unanswered, useful questions):
-- What does the company do, and how far along is it?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Tell me about your project in one or two sentences: what are you trying to do?
+- Can someone use it today, or is it still an idea?
 - What should an AI assistant be able to do with this context?
 - Which existing documents or decisions should we treat as the starting point?
 
 ## Synthesize
 Create profile, source inventory, capability map, domain applicability, and a first gap list. Use a working company label if no final name exists.
+
+Once the basic idea, problem, intended customer, solution and stage are covered or explicitly unknown, show the starter-context template. Keep this labeled a first working draft; it does not imply complete domain coverage or approval.
 
 ## Validate
 No mix-up between companies; no invented incorporation, geography or revenue. Each tool capability is available, unavailable, or unknown based on observation.

@@ -10,9 +10,9 @@ Channel plans, campaign summaries, funnel definitions, sales process, aggregated
 Map acquisition, conversion, sales handoffs, retention and referrals. Extract actual metrics and attribution assumptions.
 
 ## Investigate
-Resolve period, spend currency, conversion denominator, channel/source attribution and capacity constraints. Ask what growth decision needs context.
+When operating data exists, resolve period, spend currency, conversion denominator, channel/source attribution and capacity constraints. Explain unfamiliar terms. For an idea with no users, skip performance questions and focus on one practical learning step; a simple plan to talk with likely customers is enough. Ask what growth decision needs context only if it is unresolved and relevant.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - Which channels currently bring customers, if any?
 - What does a conversion mean in your business?
 - Which growth experiment should the next AI task support?

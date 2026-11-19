@@ -12,8 +12,9 @@ Separate the founder's market thesis from existing external evidence. Include su
 ## Investigate
 Research specific uncertainties using dated primary sources. Capture competitor offer/pricing dates and comparable scope. Use a small purposeful source set.
 
-Candidate questions (select only unanswered, useful questions):
-- Which geography and customer category should the market comparison cover?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Which location should we focus on for the comparison?
+- Which type of customer should the comparison cover?
 - What do potential customers use instead today?
 - Which external uncertainty most affects the company's next decision?
 

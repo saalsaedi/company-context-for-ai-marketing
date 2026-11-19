@@ -12,10 +12,12 @@ Extract mission, problem, vision, values, legal/trading identity, geography, and
 ## Investigate
 Ask the founder to resolve ambiguous intent and priorities. Verify formal company facts only when they matter to the context.
 
-Candidate questions (select only unanswered, useful questions):
-- Whose problem exists strongly enough for you to build this company?
-- What is the company trying to achieve, and what will it deliberately avoid?
-- Which name and operating geography should we use today?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who are you hoping to help first?
+- What would you like this project to achieve?
+- What should the project stay away from?
+- Do you have a project name yet? A temporary name is fine.
+- Where do you want to start offering it?
 
 ## Synthesize
 Separate current identity and history from aspirations. Record explicit strategic choices as founder_decision, beliefs as hypothesis.

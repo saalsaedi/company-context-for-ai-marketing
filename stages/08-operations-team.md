@@ -12,9 +12,10 @@ Map customer delivery from intake to outcome, handoffs, support/escalation, recu
 ## Investigate
 Ask for owners, realistic capacity, exceptions, dependencies and decision rights. Prefer role names over personal details.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - What happens after a customer buys?
-- Who owns delivery, support and exception decisions?
+- Who would deliver the product or service?
+- Who would help a customer who has a problem?
 - Which constraints or handoffs most often slow the work?
 
 ## Synthesize

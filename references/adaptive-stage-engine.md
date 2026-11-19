@@ -29,6 +29,10 @@ If a user asks to audit and fix, that authorizes ordinary fixes in an Update can
 Dependencies require a usable draft or explicitly bounded unknown, not perfect information. Review → Investigate → Synthesize → Validate → Approve is the cycle inside every stage.
 
 ## Routing rules
+Apply [beginner-guided-mode](beginner-guided-mode.md) to the conversation. The 12 stages remain internal coverage and review controls. The user sees Understand the project → Clarify details → Review the reference; never display a compulsory 12-stage questionnaire at onboarding.
+
+One explicit review can approve several stage summaries shown together if the reviewed scope is named and each stage records it. Unshown or unvisited stages stay pending. The early starter context is a partial projection and cannot bypass release gates. Deferring a critical question allows independent conversation to continue but keeps its dependent output blocked.
+
 Read before asking. In idea mode, prioritize 01, 03, 05, and founder hypotheses; do not fabricate operating data. In an operating company, ingest evidence first and concentrate questions on discrepancies and ownership.
 
 A critical gap blocks only a dependent output. Record the blocked claim/task and an owner. A research gap can remain a caveat if the claim is excluded or labeled unverified. A strategic_decision gap remains pending until the founder decides; the model may offer options.

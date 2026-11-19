@@ -1,0 +1,2 @@
+07e430096d804799df7bd7f0b7110d32b5d58c0a112948d2b6521f024c46e84d  ai-company-context-architect-1.1.0.zip
+e5f4ec5d59acf608a2bc551edfe9181e91cb62b06fc49fa676d45fd5ad1dcb1f  chatgpt-setup-1.1.0.zip

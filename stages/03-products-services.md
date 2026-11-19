@@ -12,9 +12,10 @@ List each offer, intended job, availability, included functionality, limits, int
 ## Investigate
 Inspect current materials or a demo if available. Ask the owner to distinguish generally available, pilot, prototype and planned capabilities.
 
-Candidate questions (select only unanswered, useful questions):
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
 - What can a customer actually use or buy today?
-- What does the offer include, and what is explicitly outside it?
+- What would a customer receive?
+- What would fall outside the offer?
 - Which capabilities are planned but should never be promised yet?
 
 ## Synthesize

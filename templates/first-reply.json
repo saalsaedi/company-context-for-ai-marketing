@@ -1,0 +1,11 @@
+{
+  "ar": {
+    "intro": "بنجهّز مرجع واضح لشركتك خطوة بخطوة. بسألك سؤالًا واحدًا كل مرة؛ جاوب بكلامك، حتى لو بجملة أو فكرة غير مكتملة. تقدر تقول: «اشرح لي»، «عطني مثال»، «ما أعرف»، «نؤجل»، أو «نوقف ونكمل لاحقًا». بنوضح الافتراضات، وأعرض لك ملخصًا تراجعه.",
+    "question": "احكِ لي عن مشروعك بجملة أو جملتين: وش تحاول تسوي؟"
+  },
+  "en": {
+    "intro": "We'll build a clear company reference step by step. I'll ask one question at a time; answer in your own words, even a short or unfinished thought. You can say “explain”, “give an example”, “I don't know”, “defer”, or “pause”. We'll label assumptions and review a short summary together.",
+    "question": "Tell me about your project in one or two sentences: what are you trying to do?"
+  }
+}
+

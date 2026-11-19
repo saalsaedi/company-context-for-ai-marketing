@@ -8,7 +8,7 @@ No company documents. Browsing unavailable for the first pass. The fixture in fi
 
 ## Expected behavior
 - Continue in Arabic and record idea maturity.
-- Ask only useful gaps, 1–3 at a time; do not request existing MRR repeatedly.
+- Ask one useful unanswered question at a time by default; do not request existing MRR repeatedly. Apply the beginner guidance and distinguish a partial starter draft from a reviewed release.
 - Record proposed demand/offer/pricing as hypotheses or aspirations.
 - Cover all ten domains proportionately; unknown technology and market size are acceptable.
 - Record a research gap instead of invented competitors or market size.

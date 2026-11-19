@@ -12,9 +12,11 @@ Distinguish user, buyer, beneficiary and decision-maker. Extract jobs, triggers,
 ## Investigate
 Look for direct customer evidence. Ask the founder about priority segments; do not treat adjacent competitor reviews as direct company-customer proof.
 
-Candidate questions (select only unanswered, useful questions):
-- Who experiences the problem and who authorizes the purchase?
-- What have customers actually said or done, and how many did you observe?
+Candidate questions (choose one useful unanswered question; these are alternatives, not a questionnaire):
+- Who experiences this problem?
+- Who would decide to pay for a solution?
+- What have potential customers actually told you or tried?
+- How many people did you hear this from?
 - Who is currently outside your intended audience?
 
 ## Synthesize
